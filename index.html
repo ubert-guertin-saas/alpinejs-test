@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test #1</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body x-data="{ username: 'theodor' }">
+    <input x-model="username" />
+    <h1 x-bind:class="{ 'red': username.length > 5 }" x-text="username"></h1>
+    <p x-show="username.length === 0">Allez.. Écrit quelque chose!</p>
+  </body>
+</html>
