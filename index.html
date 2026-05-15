@@ -8,22 +8,24 @@
     ></script>
 
     <style>
-      .red {
+      .error {
         background-color: red;
-      }
-
-      .blue {
-        background-color: blue;
+        font-weight: bold;
       }
     </style>
   </head>
 
-  <body x-data="{ state: false }">
-    <button
-      x-on:click="state = !state"
-      x-bind:class="{ 'red': state, 'blue': !state}"
-    >
-      Change color
-    </button>
+  <body x-data="{ isError: false, text: '' }">
+    <h1 x-text="text">Super Cool login</h1>
+
+    <form action="#" method="POST">
+      <input placeholder="Username" type="text" />
+      <input
+        placeholder="Paasowrd"
+        type="password"
+        x-bind:class="{'error': text.lenght < 8 }"
+        x-bind:model="text"
+      />
+    </form>
   </body>
 </html>
