@@ -16,16 +16,11 @@
   </head>
 
   <body x-data="{ isError: false, text: '' }">
-    <h1 x-text="text">Super Cool login</h1>
+    <h1>Super Cool login</h1>
 
     <form action="#" method="POST">
       <input placeholder="Username" type="text" />
-      <input
-        placeholder="Paasowrd"
-        type="password"
-        x-bind:class="{'error': text.lenght < 8 }"
-        x-bind:model="text"
-      />
+      <input placeholder="Paasowrd" type="password" x-model="text" />
     </form>
   </body>
 </html>
