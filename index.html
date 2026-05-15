@@ -8,22 +8,38 @@
     ></script>
 
     <style>
-      .red {
+      .error {
+        color: white;
+        box-shadow: 0px 5px 0px 0px #aa0000;
+        border-radius: 5px;
+        cursor: pointer;
         background-color: red;
+        font-weight: bold;
+        width: fit-content;
+        padding: 5px;
       }
 
-      .blue {
-        background-color: blue;
+      .error:hover {
+        box-shadow: 0px 2px 0px 0px #aa0000;
+        transform: translateY(3px);
       }
     </style>
   </head>
 
-  <body x-data="{ state: false }">
-    <button
-      x-on:click="state = !state"
-      x-bind:class="{ 'red': state, 'blue': !state}"
+  <body x-data="{ isError: true, text: '' }">
+    <h1>Super Cool login</h1>
+
+    <form action="#" method="POST">
+      <input placeholder="Username" type="text" />
+      <input placeholder="Paasowrd" type="password" x-model="text" />
+    </form>
+
+    <p
+      x-show="text.length < 8 && isError"
+      x-bind:class="{ error: text.length < 8 }"
+      x-on:click="isError = !isError"
     >
-      Change color
-    </button>
+      Hey, le mot de passe doit avoir plus de 8 caracteres!
+    </p>
   </body>
 </html>
