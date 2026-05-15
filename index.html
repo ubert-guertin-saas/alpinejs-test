@@ -22,5 +22,9 @@
       <input placeholder="Username" type="text" />
       <input placeholder="Paasowrd" type="password" x-model="text" />
     </form>
+
+    <p x-show="text.length < 8" x-bind:class="{ error: text.length < 8 }">
+      Hey, le mot de passe doit avoir plus de 8 caracteres!
+    </p>
   </body>
 </html>
