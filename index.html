@@ -9,14 +9,21 @@
 
     <style>
       .red {
-        color: red;
+        background-color: red;
+      }
+
+      .blue {
+        background-color: blue;
       }
     </style>
   </head>
 
-  <body x-data="{ username: 'theodor' }">
-    <input x-model="username" />
-    <h1 x-bind:class="{ 'red': username.length > 5 }" x-text="username"></h1>
-    <p x-show="username.length === 0">Allez.. Écrit quelque chose!</p>
+  <body x-data="{ state: false }">
+    <button
+      x-on:click="state = !state"
+      x-bind:class="{ 'red': state, 'blue': !state}"
+    >
+      Click sur le bouton magique !
+    </button>
   </body>
 </html>
